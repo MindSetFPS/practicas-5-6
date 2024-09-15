@@ -36,5 +36,3 @@ pandoc documentation.md -o output.pdf --pdf-engine=xelatex
 Some of these words <ins>will be underlined</ins>.
 
 <font color="red">This text is red!</font>
-
-## sexosme

@@ -16,7 +16,7 @@ public class NumberValidator extends KeyAdapter{
         if (event.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
             inputField.setEditable(true);
         } else {
-            String allowedCharacters = "1234567890";
+            String allowedCharacters = "1234567890.";
             if (allowedCharacters.indexOf(event.getKeyChar()) != -1) {
                 inputField.setEditable(true);
             } else {

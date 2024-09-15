@@ -49,15 +49,10 @@ public class CoinCounter {
             if(paid > 0){
                 if(paid < denominations.get(0)) denominations.remove(0);
                 calculate(paid, denominations);
-            } else {
-                return paid;
             }
-            
-            return paid;
-        } else {
-            System.out.println("terminar");
-            return paid;
-        } 
+        }
+        
+        return paid;
 
     }
 }
