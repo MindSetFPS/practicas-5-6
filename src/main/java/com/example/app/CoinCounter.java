@@ -33,26 +33,30 @@ public class CoinCounter {
      * ▪ 1 moneda de 50 centavos
      */
 
-    public double calculate(double paid, List<Double> numList) {
+    public String calculate(double paid, List<Double> numList) {
         List<Double> denominations = new ArrayList<>(numList);
 
         if(denominations.size() == 0){
-            return 0.0;
+            return "";
         }
+        
+        String output = "";
         
         if(paid != 0){
             if(paid >= denominations.get(0)){
-                System.out.println("1 moneda de " + denominations.get(0));
-                paid = paid - denominations.get(0); 
+                int coins = (int) (paid / denominations.get(0));
+                System.out.println( coins + " moneda de " + denominations.get(0) + "\n");
+                output = output + coins + " moneda de " + denominations.get(0) + "<br>";
+                paid = paid - (denominations.get(0) * coins); 
             }
             
             if(paid > 0){
                 if(paid < denominations.get(0)) denominations.remove(0);
-                calculate(paid, denominations);
+                output = output + calculate(paid, denominations);
             }
         }
         
-        return paid;
+        return output;
 
     }
 }
