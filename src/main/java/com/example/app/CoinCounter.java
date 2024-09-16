@@ -36,27 +36,24 @@ public class CoinCounter {
     public String calculate(double paid, List<Double> numList) {
         List<Double> denominations = new ArrayList<>(numList);
 
-        if(denominations.size() == 0){
+        if (denominations.size() == 0) {
             return "";
         }
-        
-        String output = "";
-        
-        if(paid != 0){
-            if(paid >= denominations.get(0)){
-                int coins = (int) (paid / denominations.get(0));
-                System.out.println( coins + " moneda de " + denominations.get(0) + "\n");
-                output = output + coins + " moneda de " + denominations.get(0) + "<br>";
-                paid = paid - (denominations.get(0) * coins); 
-            }
-            
-            if(paid > 0){
-                if(paid < denominations.get(0)) denominations.remove(0);
-                output = output + calculate(paid, denominations);
-            }
-        }
-        
-        return output;
 
+        String output = "";
+
+        if (paid != 0) {
+            if (paid >= denominations.get(0)) {
+                int coins = (int) (paid / denominations.get(0));
+                output = output + coins + " moneda de " + denominations.get(0) + "<br>";
+                paid = paid - (denominations.get(0) * coins);
+            }
+
+            denominations.remove(0);
+
+            output = output + calculate(paid, denominations);
+        }
+
+        return output;
     }
 }
